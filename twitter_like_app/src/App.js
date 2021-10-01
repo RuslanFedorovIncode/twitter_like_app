@@ -1,11 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
-
-import Twitter_like from './components/Twitter_like';
+import Home from './components/home_component/Home';
+import {BrowserRouter as Router, Route ,Switch} from 'react-router-dom';
 
 function App() {
   return (
-    < Twitter_like/>
+    <Router>
+      
+      <Home/>
+      <Switch>
+        <Route path="/">
+        
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
