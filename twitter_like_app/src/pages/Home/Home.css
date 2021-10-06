@@ -7,7 +7,7 @@ body{
 h1{
     text-align: center;
 }
-.posts{
+.post{
     width: 800px;
     height: 200px;
     
@@ -20,7 +20,7 @@ h1{
     background-color: #fff;
     border-radius: 10px;
 }
-.posts_title{
+.post_title{
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -28,6 +28,6 @@ h1{
 .likes{
     margin-bottom: 10px;
 }
-.posts_body{
+.post_body{
     font-size: 20px;
 }

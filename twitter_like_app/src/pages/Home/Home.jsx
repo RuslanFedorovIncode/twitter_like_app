@@ -1,5 +1,6 @@
 import React,{Component} from "react";
-import './Home.css'
+import './Home.css';
+import Post from'../Post/Post'
 
 class Home extends Component{
     constructor(props){
@@ -22,15 +23,7 @@ class Home extends Component{
                 <h1>Twitter Like app</h1>
                 {this.state.posts.map((post) => {
                     return (
-                        
-                        <div className='posts' key={post['id']}>
-                            <div className="posts_title">{post['title']}</div>
-                            <div className='likes'>💚{post['likes']}</div>
-                            <div className='posts_body'>{post['body']}</div>
-                        </div>
-                    
-                        
-                    
+                    <Post post={post} key={post.id}/>
                     )}
                 )}
             </div>
