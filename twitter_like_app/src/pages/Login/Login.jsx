@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './Login.css';
+import  validationSchema from'./validationSchema'
 import { Grid, Paper, Avatar, TextField, Button } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Checkbox from '@mui/material/Checkbox';
@@ -7,7 +8,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+
 
 const initialValues = {
   username: '',
@@ -17,10 +18,6 @@ const initialValues = {
 
 class Login extends Component {
   render() {
-    const validationSchema = Yup.object().shape({
-      username: Yup.string().email('please enter valid email').required('Required'),
-      password: Yup.string().required("Required")
-    });
     const onSubmit = (value, props) => {
       setTimeout(() => {
         props.resetForm()
