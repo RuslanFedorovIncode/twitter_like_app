@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import './Login.css';
-import  validationSchema from'./validationSchema'
-import { Grid, Paper, Avatar, TextField, Button } from '@material-ui/core';
+import validationSchema from './validationSchema'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Checkbox from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Link from '@mui/material/Link';
-import Typography from '@mui/material/Typography';
+import {Checkbox,FormControlLabel,Link,Typography ,Grid,Paper, Avatar, TextField, Button} from '@mui/material';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 
 
