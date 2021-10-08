@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Navbar, Home ,Login, Profile_Page} from "./pages";
-import { PrivateRoute } from "./privateRoute";
+import {Home ,Login, Profile} from "./pages";
+import { PrivateRoute,Navbar } from "./components";
 
 class Routes extends Component {
   render() {
@@ -18,7 +18,7 @@ class Routes extends Component {
           <Route path="/register">
             <h1>Register Page</h1>
           </Route>
-          <PrivateRoute path='/profile_page' component={Profile_Page} auth={false}/>
+          <PrivateRoute path='/profile' component={Profile} auth={true}/>
           <Route>
             <h2>Page Not Found</h2>
           </Route>
