@@ -9,6 +9,11 @@ import Typography from '@mui/material/Typography';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
+const initialValues = {
+  username: '',
+  password: '',
+  remember: 'false'
+}
 
 class Login extends Component {
   render() {
@@ -22,11 +27,6 @@ class Login extends Component {
         props.setSubmitting(false)
       }, 2000)
 
-    }
-    const initialValues = {
-      username: '',
-      password: '',
-      remember: 'false'
     }
     return (
       <Grid>
