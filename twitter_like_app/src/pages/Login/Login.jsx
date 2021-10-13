@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import './Login.css';
 import validationSchema from './validationSchema'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import {Checkbox,FormControlLabel,Link,Typography ,Grid,Paper, Avatar, TextField, Button} from '@mui/material';
+import {Checkbox,FormControlLabel,Link,Typography ,Grid,Paper, Avatar, Button} from '@mui/material';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Field_Sample } from "../../components";
 
 
 const initialValues = {
@@ -31,10 +32,26 @@ class Login extends Component {
           <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
             {(props) => (
               <Form>
-                <Field as={TextField} margin="dense" name='username' label='Username' variant="outlined" placeholder="Enter username" fullWidth helperText={<ErrorMessage name="username" />} />
-                <Field as={TextField} margin="dense" name='password' label='Password' variant="outlined" placeholder="Enter password" fullWidth type="password" helperText={<ErrorMessage name="password" />} />
-                <FormControlLabel control={<Field as={Checkbox} name='remember' />} label="Remember me" />
-                <Field as={Button} type='submit' fullWidth variant="contained" className="btnstyle" disabled={props.isSubmitting} >{props.isSubmitting ? "Loading" : "Login"}</Field>
+                <Field_Sample
+                  name='username'
+                  label='Username'
+                  placeholder='Enter username'
+                  helperText={<ErrorMessage name="username" />} />
+                <Field_Sample
+                  name='password'
+                  label='Password'
+                  placeholder='Enter password'
+                  helperText={<ErrorMessage name="password" />} />
+                <FormControlLabel
+                  control={<Field as={Checkbox} name='remember' />}
+                  label="Remember me" />
+                <Field
+                  as={Button}
+                  type='submit'
+                  fullWidth
+                  variant="contained"
+                  className="btnstyle"
+                  disabled={props.isSubmitting} >{props.isSubmitting ? "Loading" : "Login"}</Field>
               </Form>
             )}
           </Formik>
