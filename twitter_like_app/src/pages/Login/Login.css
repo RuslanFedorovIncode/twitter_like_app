@@ -1,9 +1,13 @@
 .paperStyle{
     padding: 20px;
-    height: 30vh;
+    height: 60vh;
     width: 280px;
     margin: 20px auto; 
 }
 .avatarStyle{
     margin: 20px;
+    background-color: #cc9053 !important;
+}
+.btnstyle{
+    margin: 20px 0px;
 }
