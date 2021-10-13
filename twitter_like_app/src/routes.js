@@ -12,12 +12,12 @@ class Routes extends Component {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/login" component={Login}/>
+          <Route exact path="/login" component={Login}/>
             
           <Route exact path="/register" component={Register}/>
             
           
-          <PrivateRoute path='/profile' component={Profile} auth={true}/>
+          <PrivateRoute exact path='/profile' component={Profile} auth={true}/>
           <Route>
             <h2>Page Not Found</h2>
           </Route>
