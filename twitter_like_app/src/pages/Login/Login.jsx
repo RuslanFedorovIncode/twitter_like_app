@@ -4,7 +4,7 @@ import validationSchema from './validationSchema'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import {Checkbox,FormControlLabel,Link,Typography ,Grid,Paper, Avatar, Button} from '@mui/material';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import { Field_Sample } from "../../components";
+import { FieldSample } from "../../components";
 
 
 const initialValues = {
@@ -32,12 +32,12 @@ class Login extends Component {
           <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
             {(props) => (
               <Form>
-                <Field_Sample
+                <FieldSample
                   name='username'
                   label='Username'
                   placeholder='Enter username'
                   helperText={<ErrorMessage name="username" />} />
-                <Field_Sample
+                <FieldSample
                   name='password'
                   label='Password'
                   placeholder='Enter password'

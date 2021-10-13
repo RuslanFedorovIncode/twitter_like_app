@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import {TextField} from '@mui/material';
-import { Field} from 'formik';
+import { Field } from "formik";
 
 
-class Field_Sample extends Component {
+class FieldSample extends Component {
   render() {
     return (
       <Field
@@ -18,4 +18,4 @@ class Field_Sample extends Component {
   }
 }
 
-export default Field_Sample;
+export default FieldSample;
