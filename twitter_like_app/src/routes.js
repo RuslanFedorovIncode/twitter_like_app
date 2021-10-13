@@ -14,7 +14,7 @@ class Routes extends Component {
           </Route>
           <Route path="/login" component={Login}/>
             
-          <Route path="/register" component={Register}/>
+          <Route exact path="/register" component={Register}/>
             
           
           <PrivateRoute path='/profile' component={Profile} auth={true}/>
