@@ -20,8 +20,6 @@ const initialValues = {
 class Register extends Component {
   render() {
     const onSubmit = (values, props) => {
-      console.log(values);
-      console.log(props);
       setTimeout(() => {
         props.resetForm()
         props.setSubmitting(false)
