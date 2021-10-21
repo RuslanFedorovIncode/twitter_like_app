@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import {Home ,Login, Profile,Register} from "./pages";
+import {HomeContainer ,Login, Profile,Register} from "./pages";
 import { PrivateRoute,Navbar } from "./components";
 
 class Routes extends Component {
@@ -10,7 +10,7 @@ class Routes extends Component {
         <Navbar />
         <Switch>
           <Route exact path="/">
-            <Home />
+            <HomeContainer />
           </Route>
           <Route exact path="/login" component={Login}/>
             
