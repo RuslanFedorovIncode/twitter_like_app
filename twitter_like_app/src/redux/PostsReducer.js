@@ -4,7 +4,7 @@ const initialState = {
   posts: []
 }
 
-const HomeReducer = (state = initialState, action) => {
+const PostsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_ALL_POSTS: {
       return{
@@ -17,4 +17,4 @@ const HomeReducer = (state = initialState, action) => {
 }
 
 export const addAllPostsActionCreator = (posts) => ({type : ADD_ALL_POSTS, posts});
-export default HomeReducer;
+export default PostsReducer;
