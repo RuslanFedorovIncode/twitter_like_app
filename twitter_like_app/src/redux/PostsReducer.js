@@ -1,4 +1,4 @@
-const ADD_ALL_POSTS = 'ADD_ALL_POSTS';
+const FETCH_POSTS = 'FETCH_POSTS';
 
 const initialState = {
   posts: []
@@ -6,7 +6,7 @@ const initialState = {
 
 const PostsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_ALL_POSTS: {
+    case FETCH_POSTS: {
       return{
         ...state, posts : action.posts
       }

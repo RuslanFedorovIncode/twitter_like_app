@@ -1,3 +1,3 @@
-const ADD_ALL_POSTS = 'ADD_ALL_POSTS';
+const FETCH_POSTS = 'FETCH_POSTS';
 
-export const addAllPostsActionCreator = (posts) => ({type : ADD_ALL_POSTS, posts});
+export const addAllPostsActionCreator = (posts) => ({type : FETCH_POSTS, posts});
