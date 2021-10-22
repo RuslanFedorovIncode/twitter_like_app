@@ -2,15 +2,12 @@ import React, { Component } from "react";
 import './Home.css';
 import { Post } from "../../components";
 import { connect } from "react-redux";
-import { addAllPostsActionCreator } from "../../redux/actions";
+import { fetchPostsThunk } from "../../redux/actions";
 
 class Home extends Component {
 
   componentDidMount() {
-    fetch('http://localhost:3001/posts')
-      .then(res => res.json())
-      .then(posts => this.props.addAllPosts(posts))
-    
+    this.props.fetchPostsThunk()
   }
 
   render() {
@@ -36,12 +33,8 @@ const mapStateToProps = (state) =>{
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return{
-    addAllPosts : (posts) => {
-      dispatch(addAllPostsActionCreator(posts))
-    }
-  }
+const mapDispatchToProps = {
+  fetchPostsThunk
 }
 
 export default connect (mapStateToProps,mapDispatchToProps)(Home);
