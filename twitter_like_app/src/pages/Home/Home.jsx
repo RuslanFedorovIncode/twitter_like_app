@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import './Home.css';
 import { Post } from "../../components";
 import { connect } from "react-redux";
-import { addAllPostsActionCreator } from "../../redux/PostsReducer";
+import { addAllPostsActionCreator } from "../../redux/actions";
 
 class Home extends Component {
 

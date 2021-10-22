@@ -16,5 +16,4 @@ const PostsReducer = (state = initialState, action) => {
   }
 }
 
-export const addAllPostsActionCreator = (posts) => ({type : ADD_ALL_POSTS, posts});
 export default PostsReducer;
