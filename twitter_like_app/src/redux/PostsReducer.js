@@ -1,6 +1,5 @@
 import { FETCH_POSTS } from "./actions";
 
-
 const initialState = {
   posts: []
 }

@@ -4,7 +4,7 @@ export const addAllPostsActionCreator = (posts) => ({type : FETCH_POSTS, posts})
 
 export const fetchPostsThunk = () => {
     return (dispatch) =>{
-    fetch('http://localhost:3001/posts')
+    fetch(process.env.REACT_APP_URL_PATH+'/posts')
         .then(res => res.json())
         .then(posts => dispatch(addAllPostsActionCreator(posts)))
     }
