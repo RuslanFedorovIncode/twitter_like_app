@@ -1,37 +1,41 @@
 import React, { Component } from "react";
 import './Home.css';
 import { Post } from "../../components";
+import { connect } from "react-redux";
+import { fetchPostsThunk } from "../../redux/actions";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      posts: []
-    }
-  }
 
   componentDidMount() {
-    fetch('http://localhost:3000/posts')
-      .then(res => res.json())
-      .then(result => this.setState({ posts: result }))
+    this.props.fetchPostsThunk()
   }
 
   render() {
-
     return (
+      
       <div className='main'>
         <h1>Twitter Like app</h1>
-        {this.state.posts.map((post) => {
+        {this.props.posts.map((post) => {
           return (
             <Post post={post} key={post.id} />
           )
         }
         )}
       </div>
+
     )
   }
-
 }
 
-export default Home;
+const mapStateToProps = (state) =>{
+  return{
+    posts : state.PostsReducer.posts
+  }
+}
+
+const mapDispatchToProps = {
+  fetchPostsThunk
+}
+
+export default connect (mapStateToProps,mapDispatchToProps)(Home);
 
