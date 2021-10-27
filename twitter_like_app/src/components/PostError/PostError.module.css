@@ -1,0 +1,28 @@
+.post{
+    width: 400px;
+    height: 130px;
+    margin: 0 auto;
+    border: solid grey 1px;
+    padding: 20px;
+    margin-bottom: 10px;
+    text-overflow: ellipsis;
+    overflow: auto;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.post_title{
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-right: 10px;
+    
+}
+
+.post_body{
+    font-size: 20px;
+}
+.wrapper{
+    display: flex;
+    justify-content : space-around;
+    margin-top: 40px;
+}
