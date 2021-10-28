@@ -1,11 +1,25 @@
-export const FETCH_POSTS = 'FETCH_POSTS';
+import { api } from "../Api";
 
-export const addAllPostsActionCreator = (posts) => ({type : FETCH_POSTS, posts});
+export const FETCH_POSTS_SUCCES = 'FETCH_POSTS_SUCCES';
+export const FETCH_POSTS_FAIL = 'FETCH_POSTS_FAIL';
+export const DELETE_POST_SUCCES = 'DELETE_POST_SUCCES';
 
-export const fetchPostsThunk = () => {
-    return (dispatch) =>{
-    fetch(process.env.REACT_APP_URL_PATH+'/posts')
-        .then(res => res.json())
-        .then(posts => dispatch(addAllPostsActionCreator(posts)))
-    }
+
+export const fetchPostsSuccesAC = (payload) => ({ type: FETCH_POSTS_SUCCES,payload });
+export const fetchPostsFailAC = (payload) => ({ type: FETCH_POSTS_FAIL, payload });
+export const deletePostSuccesAC = (payload) => ({type: DELETE_POST_SUCCES, payload});
+
+
+export const fetchPostsThunk = () => (dispatch) => {
+  api.get('/posts')
+    .then(posts => dispatch(fetchPostsSuccesAC(posts)))
+    .catch(error => dispatch(fetchPostsFailAC(error.message)))
 }
+
+export const deletePostThunk = (id) => (dispatch) => {
+  api.delete('/posts', id)
+    .then(dispatch(deletePostSuccesAC(id)))
+    .catch(error => dispatch(fetchPostsFailAC(error.message)))
+}
+
+
