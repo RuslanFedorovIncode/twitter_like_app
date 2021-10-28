@@ -21,11 +21,7 @@ class Post extends Component {
             </Button>
           </div></div>
         </div>
-
-
-
       </div>
-
     )
   }
 }
