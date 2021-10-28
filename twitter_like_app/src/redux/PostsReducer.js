@@ -1,15 +1,17 @@
-import { FETCH_POSTS_SUCCES , DELETE_POST_SUCCES , FETCH_POSTS_FAIL, } from "./actions";
+import { FETCH_POSTS_SUCCES , DELETE_POST_SUCCES , FETCH_POSTS_FAIL, SET_LOADING} from "./actions";
 
 const initialState = {
   posts: [],
-  error : ''
+  error : '',
+  isFetching : false
 }
 
 const PostsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_POSTS_SUCCES: {
       return{
-        ...state, posts : action.payload
+        ...state, 
+        posts : action.payload
       }
     }
     case FETCH_POSTS_FAIL:{
@@ -22,6 +24,12 @@ const PostsReducer = (state = initialState, action) => {
       return{
         ...state,
         posts: state.posts.filter(post => post.id !== action.payload)
+      }
+    }
+    case SET_LOADING:{
+      return{
+        ...state,
+        isFetching : action.payload
       }
     }
     default:
