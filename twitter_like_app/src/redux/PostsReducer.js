@@ -1,33 +1,27 @@
-import { FETCH_POSTS , DELETE_POST , CANT_FETCH} from "./actions";
+import { FETCH_POSTS_SUCCES , DELETE_POST_SUCCES , FETCH_POSTS_FAIL, } from "./actions";
 
 const initialState = {
   posts: [],
-  errors : null,
+  error : ''
 }
 
 const PostsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_POSTS: {
+    case FETCH_POSTS_SUCCES: {
       return{
-        ...state, posts : action.posts
+        ...state, posts : action.payload
       }
     }
-    case DELETE_POST:{
+    case DELETE_POST_SUCCES:{
       return{
         ...state,
-        posts: state.posts.filter(post => post.id !== action.id)
+        posts: state.posts.filter(post => post.id !== action.payload)
       }
     }
-    case CANT_FETCH:{
-      
+    case FETCH_POSTS_FAIL:{
       return{
         ...state,
-        errors : [
-          {
-            "title": action.error,
-            "id" : 1
-          }
-        ]
+        error : action.payload
       }
     }
     default:
