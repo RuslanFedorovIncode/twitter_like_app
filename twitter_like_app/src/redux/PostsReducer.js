@@ -12,16 +12,16 @@ const PostsReducer = (state = initialState, action) => {
         ...state, posts : action.payload
       }
     }
-    case DELETE_POST_SUCCES:{
-      return{
-        ...state,
-        posts: state.posts.filter(post => post.id !== action.payload)
-      }
-    }
     case FETCH_POSTS_FAIL:{
       return{
         ...state,
         error : action.payload
+      }
+    }
+    case DELETE_POST_SUCCES:{
+      return{
+        ...state,
+        posts: state.posts.filter(post => post.id !== action.payload)
       }
     }
     default:
