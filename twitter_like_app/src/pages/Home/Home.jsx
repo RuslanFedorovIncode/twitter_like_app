@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './Home.css';
-import { Post, PostError } from "../../components";
+import { Post, ErrorComponent} from "../../components";
 import { connect } from "react-redux";
 import { fetchPostsThunk, deletePostThunk } from "../../redux/actions";
 
@@ -15,7 +15,7 @@ class Home extends Component {
       <div className='main'>
         <h1>Twitter Like app</h1>
         {
-          this.props.errors === null
+          this.props.error === ''
             ?
             this.props.posts.map((post) => {
               return (
@@ -27,13 +27,8 @@ class Home extends Component {
               )
             })
             :
-            this.props.errors.map((post) => {
-              return (
-                <PostError
-                  post={post}
-                  key={post.id} />
-              )
-            })
+            <ErrorComponent
+              error={this.props.error} />
         }
       </div>
     )
@@ -43,7 +38,7 @@ class Home extends Component {
 const mapStateToProps = (state) => {
   return {
     posts: state.PostsReducer.posts,
-    errors: state.PostsReducer.errors,
+    error: state.PostsReducer.error
   }
 }
 
