@@ -1,6 +1,7 @@
-const url = process.env.REACT_APP_URL_PATH;
-
 class Api {
+  constructor(props){
+    this.url = process.env.REACT_APP_URL_PATH;
+  }
 
   checkResponse(response) {
     if (response.status === 200) {
@@ -11,12 +12,12 @@ class Api {
   }
 
   get(path) {
-    return fetch(url + path)
+    return fetch(this.url + path)
       .then(res => this.checkResponse(res))
   }
 
   delete(path, id) {
-    return fetch(url + path + '/' + id, { method: 'DELETE' })
+    return fetch(this.url + `${path}/${id}`, { method: 'DELETE' })
     .then(res => this.checkResponse(res))
   }
 }
