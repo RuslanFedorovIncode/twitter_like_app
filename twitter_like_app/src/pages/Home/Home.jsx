@@ -12,7 +12,7 @@ class Home extends Component {
     return (
       <div className='main'>
         <h1>Twitter Like app</h1>
-        {this.props.isFetching && <Preloader text={'Loading posts ...'} /> }
+        {this.props.isFetching && <Preloader text='Loading posts ...' /> }
         {this.props.posts.map((post) => {
           return (
             <Post
@@ -23,8 +23,9 @@ class Home extends Component {
           )
         })
         }
-        {this.props.error !== '' && <ErrorComponent error={this.props.error} /> }
-        {(!this.props.posts.length && this.props.error === '') && <ZeroPostsComponent />}
+        {this.props.error && <ErrorComponent error={this.props.error} /> }
+        {(!this.props.posts.length && !this.props.error && !this.props.isFetching) 
+          && <ZeroPostsComponent />}
       </div>
     )
   }
