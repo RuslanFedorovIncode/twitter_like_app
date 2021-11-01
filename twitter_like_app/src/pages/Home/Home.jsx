@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import './Home.css';
-import { Post, ErrorComponent, Preloader,ZeroPostsComponent} from "../../components";
+import { Post, ErrorComponent, Preloader,ZeroPostsComponent, ModalWindow} from "../../components";
 import { connect } from "react-redux";
-import { fetchPostsThunk, deletePostThunk } from "../../redux/actions";
+import { fetchPostsThunk, deletePostThunk ,setAddForm,addPostThunk} from "../../redux/actions";
+import Button from '@mui/material/Button';
 
 class Home extends Component {
   componentDidMount() {
@@ -12,7 +13,15 @@ class Home extends Component {
     return (
       <div className='main'>
         <h1>Twitter Like app</h1>
-        {this.props.isFetching && <Preloader text='Loading posts ...' /> }
+        <Button
+          variant="contained"
+          color = "primary"
+          className='buttonAddPost'
+          onClick={this.props.setAddForm}>
+          {this.props.setAddFormValue ? "CLOSE" : "ADD POST"}
+        </Button>
+        {this.props.setAddFormValue && <ModalWindow addPostThunk={this.props.addPostThunk} setAddForm={this.props.setAddForm}/>}
+        {this.props.isFetching && <Preloader text='Loading posts ...' />}
         {this.props.posts.map((post) => {
           return (
             <Post
@@ -35,13 +44,16 @@ const mapStateToProps = (state) => {
   return {
     posts: state.PostsReducer.posts,
     error: state.PostsReducer.error,
-    isFetching : state.PostsReducer.isFetching
+    isFetching : state.PostsReducer.isFetching,
+    setAddFormValue : state.PostsReducer.setAddFormValue
   }
 }
 
 const mapDispatchToProps = {
   fetchPostsThunk,
-  deletePostThunk
+  deletePostThunk,
+  setAddForm,
+  addPostThunk
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
