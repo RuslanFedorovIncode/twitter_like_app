@@ -1,0 +1,17 @@
+.avatar{
+    margin: 15px auto 0px;
+    background-color: rgb(212, 183, 145) !important;
+}
+.dialogContent{
+    width: 320px;
+    height: 250px;
+    text-align: center;
+}
+.dialogTitle{
+    text-align: center;
+}
+.closeIcon{
+    margin-left: auto;
+    padding: 10px;
+    cursor: pointer;
+}
