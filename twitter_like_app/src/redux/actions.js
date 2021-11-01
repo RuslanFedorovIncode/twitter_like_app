@@ -34,7 +34,7 @@ export const deletePostThunk = (id) => (dispatch) => {
 }
 
 export const addPostThunk = (data) => (dispatch) => {
-  api.add('/posts', data)
+  api.post('/posts', data)
     .then(response => dispatch(addPostSucces(response)))
     .catch(error => dispatch(fetchPostsFail(error.message)))
 }

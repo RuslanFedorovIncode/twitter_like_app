@@ -22,7 +22,7 @@ class Api {
     return fetch(this.url + `${path}/${id}`, { method: 'DELETE' })
       .then(res => this.checkResponse(res))
   }
-  add(path, data) {
+  post(path, data) {
     return fetch(this.url + path, {
       method: 'POST', headers: {
         'Content-Type': 'application/json'
