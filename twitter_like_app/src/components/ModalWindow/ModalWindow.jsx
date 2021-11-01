@@ -16,7 +16,7 @@ class ModalWindow extends Component {
 
   onSubmitHandler = (values, { resetForm }) => {
     this.props.addPostThunk(values)
-    resetForm({})
+    resetForm()
   }
   render() {
     return (
