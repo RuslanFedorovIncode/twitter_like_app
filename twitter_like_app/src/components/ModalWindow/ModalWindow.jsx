@@ -22,10 +22,10 @@ class ModalWindow extends Component {
     return (
       <Dialog
         open={true}
-        onClose={this.props.setAddForm}>
+        onClose={this.props.onStateChange}>
         <CloseIcon
           className={styles.closeIcon}
-          onClick={this.props.setAddForm} />
+          onClick={this.props.onStateChange} />
         <Avatar className={styles.avatar}><AddToPhotosIcon /></Avatar>
         <DialogTitle
           id="form_addPost"

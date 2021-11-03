@@ -2,10 +2,21 @@ import React, { Component } from "react";
 import './Home.css';
 import { Post, ErrorComponent, Preloader,ZeroPostsComponent, ModalWindow} from "../../components";
 import { connect } from "react-redux";
-import { fetchPostsThunk, deletePostThunk ,setAddForm,addPostThunk} from "../../redux/actions";
+import { fetchPostsThunk, deletePostThunk ,addPostThunk} from "../../redux/actions";
 import Button from '@mui/material/Button';
 
 class Home extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      setModalWindow : false
+    }
+  }
+
+  onStateChange = () =>{
+    this.setState({setModalWindow : !this.state.setModalWindow})
+  }
+  
   componentDidMount() {
     this.props.fetchPostsThunk()
   }
@@ -17,10 +28,10 @@ class Home extends Component {
           variant="contained"
           color = "primary"
           className='buttonAddPost'
-          onClick={this.props.setAddForm}>
-          {this.props.setAddFormValue ? "CLOSE" : "ADD POST"}
+          onClick={this.onStateChange}>
+          {this.state.setModalWindow ? "CLOSE" : "ADD POST"}
         </Button>
-        {this.props.setAddFormValue && <ModalWindow addPostThunk={this.props.addPostThunk} setAddForm={this.props.setAddForm}/>}
+        {this.state.setModalWindow && <ModalWindow addPostThunk={this.props.addPostThunk} onStateChange={this.onStateChange}/>}
         {this.props.isFetching && <Preloader text='Loading posts ...' />}
         {this.props.posts.map((post) => {
           return (
@@ -44,15 +55,13 @@ const mapStateToProps = (state) => {
   return {
     posts: state.PostsReducer.posts,
     error: state.PostsReducer.error,
-    isFetching : state.PostsReducer.isFetching,
-    setAddFormValue : state.PostsReducer.setAddFormValue
+    isFetching : state.PostsReducer.isFetching
   }
 }
 
 const mapDispatchToProps = {
   fetchPostsThunk,
   deletePostThunk,
-  setAddForm,
   addPostThunk
 }
 
