@@ -1,11 +1,10 @@
 import { FETCH_POSTS_SUCCES, DELETE_POST_SUCCES,FETCH_POSTS_FAIL,
-SET_LOADING, SET_ADD_FORM, ADD_POST_SUCCES } from "./actions";
+SET_LOADING, ADD_POST_SUCCES } from "./actions";
 
 const initialState = {
   posts: [],
   error: '',
-  isFetching: false,
-  setAddFormValue: false
+  isFetching: false
 }
 
 const PostsReducer = (state = initialState, action) => {
@@ -32,12 +31,6 @@ const PostsReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: action.payload
-      }
-    }
-    case SET_ADD_FORM: {
-      return {
-        ...state,
-        setAddFormValue: !state.setAddFormValue
       }
     }
     case ADD_POST_SUCCES: {
