@@ -4,6 +4,8 @@ import { Post, ErrorComponent, Preloader,ZeroPostsComponent, ModalWindow} from "
 import { connect } from "react-redux";
 import { fetchPostsThunk, deletePostThunk ,addPostThunk} from "../../redux/actions";
 import Button from '@mui/material/Button';
+import { AddNewPostBody, AddNewPostTitle} from "../../components";
+
 
 class Home extends Component {
   constructor(props){
@@ -31,7 +33,13 @@ class Home extends Component {
           onClick={this.onStateChange}>
           {this.state.setModalWindow ? "CLOSE" : "ADD POST"}
         </Button>
-        {this.state.setModalWindow && <ModalWindow addPostThunk={this.props.addPostThunk} onStateChange={this.onStateChange}/>}
+        {this.state.setModalWindow &&
+          <ModalWindow
+            title={<AddNewPostTitle />}
+            onClose={this.onStateChange}>
+            <AddNewPostBody
+              addPostThunk={this.props.addPostThunk} />
+          </ModalWindow>}
         {this.props.isFetching && <Preloader text='Loading posts ...' />}
         {this.props.posts.map((post) => {
           return (
