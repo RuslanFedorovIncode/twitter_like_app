@@ -6,3 +6,5 @@ export {default as ErrorComponent} from './ErrorComponent/ErrorComponent';
 export {default as Preloader} from './preloader/Preloader';
 export {default as ZeroPostsComponent} from './ZeroPostsComponent/ZeroPostsComponent';
 export {default as ModalWindow} from './ModalWindow/ModalWindow';
+export {default as AddNewPostBody} from './AddNewPost/AddNewPostBody/AddNewPostBody';
+export {default as AddNewPostTitle} from './AddNewPost/AddNewPostTitle/AddNewPostFormTitle'
