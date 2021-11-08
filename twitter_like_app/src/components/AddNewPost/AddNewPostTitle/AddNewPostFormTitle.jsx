@@ -8,7 +8,7 @@ class AddNewPostFormTitle extends Component{
     return(
       <>
       <Avatar className={styles.avatar}><AddToPhotosIcon /></Avatar>
-      <div className={styles.title}>Title</div>
+      <div className={styles.title}>Add post</div>
       </>
     )
   }
