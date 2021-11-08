@@ -7,3 +7,12 @@ body{
 h1{
     text-align: center;
 }
+.buttonAddPost{
+    width: 160px;
+    height: 40px;
+    position: relative;
+    left: 50%;
+    top : -15px;
+    transform: translate(-50%, 0);
+
+}

@@ -16,7 +16,7 @@ class Post extends Component {
             <div className={styles.likes}>💚{likes}</div>
             <div className={styles.post_body}>{body}</div></div>
           <div className={styles.wrapper_child}><div>
-            <Button variant="outlined" onClick={()=>{this.props.deletePostThunk(this.props.id)}} startIcon={<DeleteForeverIcon />}>
+            <Button variant="contained" onClick={()=>{this.props.deletePostThunk(this.props.id)}} startIcon={<DeleteForeverIcon />}>
               Delete
             </Button>
           </div></div>

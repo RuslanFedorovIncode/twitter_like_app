@@ -1,0 +1,10 @@
+.dialogContent{
+    width: 320px;
+    height: 250px;
+    text-align: center;
+}
+.closeIcon{
+    margin-left: auto;
+    padding: 10px;
+    cursor: pointer;
+}

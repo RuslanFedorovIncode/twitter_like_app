@@ -1,10 +1,24 @@
 import React, { Component } from "react";
 import './Home.css';
-import { Post, ErrorComponent, Preloader,ZeroPostsComponent} from "../../components";
+import { Post, ErrorComponent, Preloader,ZeroPostsComponent, ModalWindow} from "../../components";
 import { connect } from "react-redux";
-import { fetchPostsThunk, deletePostThunk } from "../../redux/actions";
+import { fetchPostsThunk, deletePostThunk ,addPostThunk} from "../../redux/actions";
+import Button from '@mui/material/Button';
+import { AddNewPostBody, AddNewPostTitle} from "../../components";
+
 
 class Home extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      setModalWindow : false
+    }
+  }
+
+  onStateChange = () =>{
+    this.setState({setModalWindow : !this.state.setModalWindow})
+  }
+  
   componentDidMount() {
     this.props.fetchPostsThunk()
   }
@@ -12,7 +26,21 @@ class Home extends Component {
     return (
       <div className='main'>
         <h1>Twitter Like app</h1>
-        {this.props.isFetching && <Preloader text='Loading posts ...' /> }
+        <Button
+          variant="contained"
+          color = "primary"
+          className='buttonAddPost'
+          onClick={this.onStateChange}>
+          {this.state.setModalWindow ? "CLOSE" : "ADD POST"}
+        </Button>
+        {this.state.setModalWindow &&
+          <ModalWindow
+            title={<AddNewPostTitle />}
+            onClose={this.onStateChange}>
+            <AddNewPostBody
+              addPostThunk={this.props.addPostThunk} />
+          </ModalWindow>}
+        {this.props.isFetching && <Preloader text='Loading posts ...' />}
         {this.props.posts.map((post) => {
           return (
             <Post
@@ -41,7 +69,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   fetchPostsThunk,
-  deletePostThunk
+  deletePostThunk,
+  addPostThunk
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
