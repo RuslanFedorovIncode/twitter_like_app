@@ -25,3 +25,9 @@
     display: flex;
     justify-content : space-between;
 }
+.editButton{
+    position: relative;
+    top: 40px;
+    left: 108px;
+    width: 108px;
+}

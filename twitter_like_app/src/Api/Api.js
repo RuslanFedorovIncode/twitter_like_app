@@ -19,12 +19,25 @@ class Api {
   }
 
   delete(path, id) {
-    return fetch(this.url + `${path}/${id}`, { method: 'DELETE' })
+    return fetch(this.url + `${path}/${id}`, {
+      method: 'DELETE'
+    })
       .then(res => this.checkResponse(res))
   }
   post(path, data) {
     return fetch(this.url + path, {
-      method: 'POST', headers: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => this.checkResponse(res))
+  }
+  put(path, data) {
+    return fetch(this.url + `${path}/${data.id}`, {
+      method: 'PUT',
+      headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(data)

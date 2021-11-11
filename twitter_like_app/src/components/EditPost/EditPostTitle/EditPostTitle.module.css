@@ -1,0 +1,10 @@
+.avatar{
+  margin: 0 auto;
+  background-color: rgb(212, 183, 145) !important;
+}
+.title{
+  text-align: center;
+  margin: 10px auto;
+  font-weight: bold;
+  font-size: 30px;
+}
